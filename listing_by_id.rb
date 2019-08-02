@@ -15,7 +15,7 @@ file = ARGV[0] || "20070627211337300206000000"
 # get listing
 listing = SparkApi.client.get "/listings/#{file}"
 
-# write listing to file
+# write listing to file as json
 output = File.open("listing.txt", "w")
-output.write(listing)
+output.write(listing[0].to_json)
 output.close
